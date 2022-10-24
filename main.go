@@ -24,7 +24,13 @@ func initRouter() *gin.Engine {
 		api.POST("/user/register", controllers.RegisterUser)
 		secured := api.Group("/secured").Use(middlewares.Auth())
 		{
-			secured.GET("/ping", controllers.Ping)
+			secured.GET("/dashboard", controllers.Ping)
+			secured.GET("/tasks", controllers.FindTasks)
+			secured.POST("/tasks", controllers.CreateTask)
+			secured.GET("/tasks/one", controllers.FindTask) 
+			secured.PUT("/tasks/update", controllers.UpdateTask)
+			secured.POST("/tasks/delete", controllers.DeleteTask)  
+			
 		}
 	}
 	return router
