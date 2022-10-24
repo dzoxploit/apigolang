@@ -30,6 +30,12 @@ func initRouter() *gin.Engine {
 			secured.GET("/tasks/one", controllers.FindTask) 
 			secured.PUT("/tasks/update", controllers.UpdateTask)
 			secured.POST("/tasks/delete", controllers.DeleteTask)  
+
+			secured.GET("/users", controllers.GetAllUsers)
+			secured.POST("/users", controllers.CreateUser)
+			secured.GET("/users/one", controllers.GetUserByID) 
+			secured.PUT("/users/update", controllers.UpdateUser)
+			secured.POST("/users/delete", controllers.DeleteUser)  
 			
 		}
 	}
