@@ -9,11 +9,11 @@ import (
 )
 
 func main() {
-	database.ConnectDB("root:root@tcp(localhost:3306)/task_management?parseTime=true")
+	database.ConnectDB("root:@tcp(localhost:3306)/task_management?parseTime=true")
 	database.Migrate()
 
 	router := initRouter()
-	router.Run(":8080")
+	router.Run(":8000")
 }
 
 func initRouter() *gin.Engine {
